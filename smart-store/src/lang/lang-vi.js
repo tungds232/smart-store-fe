@@ -9,3 +9,9 @@ export const GROUP_MENU = 'Nhóm sản phẩm';
 export const PRODUCT_MENU = 'Sản phẩm';
 export const PACKAGE_SPECIFICATION_MENU = 'Quy cách';
 export const ADDRESS_MENU = 'Địa chỉ';
+
+
+
+export const SEARCH_PLACE_HOLDER = 'Nhập thông tin tìm kiếm';
+export const SEARCH_ICON = 'Tìm kiếm'
+export const ADD_ICON = 'Thêm'
