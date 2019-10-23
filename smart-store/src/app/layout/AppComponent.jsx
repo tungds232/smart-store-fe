@@ -6,17 +6,26 @@ import FooterComponent from './FooterComponent';
 import ContentComponent from './ContentComponent';
 
 import 'antd/dist/antd.css';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
+import './app.css';
+
+const { Header, Content, Sider, Footer } = Layout;
+
+
 
 function AppComponent() {
     return (
         <div>
+            { 
             <Layout>
                 <HeaderComponent />
-                <MenuComponent />
-                <ContentComponent />
+                <Layout hasSider={true}>
+                    <MenuComponent />
+                    <ContentComponent />
+                </Layout>
                 <FooterComponent />
-            </Layout>
+            </Layout> 
+            }
         </div>
     )
 }

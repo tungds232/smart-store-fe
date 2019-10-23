@@ -7,7 +7,7 @@ const { Content } = Layout;
 
 function ContentComponent() {
     return (
-        <Content>Content</Content>
+        <Content>Content</Content>   
     ) 
 }
 

@@ -1,0 +1,11 @@
+export const ORDER_MENU = 'Đơn hàng';
+export const DISCOUNT_MENU = 'Chiết khấu';
+export const SUPPLIER_PRODUCT_PACKAGE_MENU = 'Nhà cung cấp - Sản phẩm - Quy cách';
+export const SUPPLIER_MENU = 'Nhà cung cấp';
+export const PRODUCT_ALL_MENU = 'Sản phẩm';
+export const CATEGORY_MENU = 'Loại sản phẩm';
+export const CLASS_MENU = 'Lớp sản phẩm';
+export const GROUP_MENU = 'Nhóm sản phẩm';
+export const PRODUCT_MENU = 'Sản phẩm';
+export const PACKAGE_SPECIFICATION_MENU = 'Quy cách';
+export const ADDRESS_MENU = 'Địa chỉ';
