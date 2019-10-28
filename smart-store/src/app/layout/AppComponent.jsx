@@ -6,27 +6,25 @@ import FooterComponent from './FooterComponent';
 import ContentComponent from './ContentComponent';
 
 import 'antd/dist/antd.css';
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import './app.css';
 
-const { Header, Content, Sider, Footer } = Layout;
+import {BrowserRouter as Router} from 'react-router-dom';
 
 
 
 function AppComponent() {
     return (
-        <div>
-            { 
+        <Router>
             <Layout>
                 <HeaderComponent />
                 <Layout hasSider={true}>
                     <MenuComponent />
-                    <ContentComponent />
+                    <ContentComponent />   
                 </Layout>
                 <FooterComponent />
             </Layout> 
-            }
-        </div>
+        </Router>
     )
 }
 

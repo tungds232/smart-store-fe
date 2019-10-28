@@ -5,6 +5,9 @@ import { Menu, Icon, Switch} from 'antd';
 import Sider from 'antd/lib/layout/Sider';
 import * as lang from '../../lang/lang-vi';
 
+import {Route, Link } from 'react-router-dom';
+
+
 import OrderSvg from './asset/order.svg';
 import DiscountSvg from './asset/discount.svg';
 import SupplierProductPackageSvg from './asset/supplier-product-package.svg';
@@ -52,15 +55,15 @@ function MenuComponent() {
                     </span>
                     }
                 >
-                    <Menu.Item key="product-category">{lang.CATEGORY_MENU}</Menu.Item>
-                    <Menu.Item key="product-class">{lang.CLASS_MENU}</Menu.Item>
-                    <Menu.Item key="product-group">{lang.GROUP_MENU}</Menu.Item>
-                    <Menu.Item key="product-product">{lang.PRODUCT_MENU}</Menu.Item>
+                    <Menu.Item key="product-category"><Link to="/">{lang.CATEGORY_MENU}</Link></Menu.Item>
+                    <Menu.Item key="product-class"><Link to="/">{lang.CLASS_MENU}</Link></Menu.Item>
+                    <Menu.Item key="product-group"><Link to="/">{lang.GROUP_MENU}</Link></Menu.Item>
+                    <Menu.Item key="product-product"><Link to="/">{lang.PRODUCT_MENU}</Link></Menu.Item>
                 </SubMenu>
 
                 <Menu.Item key="package-specification">
                     <Icon component={PackageSpecificationSvg} />
-                    <span>{lang.PACKAGE_SPECIFICATION_MENU}</span>
+                    <span><Link to="/Package-Specification">{lang.PACKAGE_SPECIFICATION_MENU}</Link></span>
                 </Menu.Item>
 
                 <Menu.Item key="address">
@@ -69,8 +72,9 @@ function MenuComponent() {
                 </Menu.Item>
             </Menu>
         </Sider>
-
     )   
 }
+
+
 
 export default MenuComponent;

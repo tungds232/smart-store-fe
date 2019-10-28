@@ -1,7 +1,6 @@
-import { combineReducers } from "redux";
 import types from "./types";
 
-const reducer = ( state = false, action ) => {
+const reducer = ( state = {}, action ) => {
 
     switch( action.type ) {
         case types.SEARCH_ITEM:

@@ -1,34 +1,34 @@
 import types from './types';
 
-const search_item = (keyword) => {
+const searchItem = (keyword) => {
     type: types.SEARCH_ITEM;
     data: {
         keyword
     }
 };
 
-const add_item = (item) => {
+const addItem = (item) => {
     type: types.ADD_ITEM;
     data: {
         item
     }
 };
 
-const show_item = (item) => {
+const showItem = (item) => {
     type: types.SHOW_ITEM;
     data: {
         item
     }
 };
 
-const update_item = (item) => {
+const updateItem = (item) => {
     type: types.UPDATE_ITEM;
     data: {
         item
     }
 };
 
-const remove_item = (item) => {
+const removeItem = (item) => {
     type: types.REMOVE_ITEM;
     data: {
         item
@@ -36,9 +36,9 @@ const remove_item = (item) => {
 };
 
 export default {
-    search_item,
-    add_item,
-    show_item,
-    update_item,
-    remove_item
+    searchItem,
+    addItem,
+    showItem,
+    updateItem,
+    removeItem56
 };
