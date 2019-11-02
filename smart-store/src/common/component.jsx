@@ -2,12 +2,12 @@ import React from 'react';
 
 import * as lang from '../lang/lang-vi';
 
-import { Input, Button } from 'antd';
+import { Input, Button, PageHeader, Table, Modal, Form } from 'antd';
 const { Search } = Input;
 
 
 
-export function SearchItemComponent(props) {
+export function SearchComponent(props) {
     return (
         <div>
             <Search
@@ -19,27 +19,82 @@ export function SearchItemComponent(props) {
     )
 }
 
-export function AddNewItemComponent(props) {
+export function AddComponent(props) {
+    const {addtionTitle} = props;
+
     return (
         <div>
              <Button 
                 type="primary" 
                 style = {{backgroundColor: 'green'}}
-                >{props.text}
+                >{addtionTitle}
              </Button>
         </div>
     )
 }
 
 export function HeaderComponent(props) {
+    const {SearchContainer, headerTitle, addtionTitle} = props;
+
     return (
         <div>
             <PageHeader
                 style={{border: '1px solid rgb(235, 237, 240)',}}
-                title={props.title}
+                title={headerTitle}
             />
-            <SearchItemComponent style={{float:"right", display:"inline"}}/>
-            <AddNewItemComponent text="Thêm quy cách" style={{display:"inline"}}/>
+            <SearchContainer />
+            <AddComponent addtionTitle={addtionTitle} />
+            <UpdateComponent />
+            <RemoveComponent />
+            <ActiveDeactiveComponent isActive={false} />
         </div>
+    );
+}
+
+export function UpdateComponent() {
+    return (
+        <div>
+             <Button 
+                type="primary" 
+                style = {{backgroundColor: "blue"}}
+                onClick={()=>visible = true}
+                >{lang.UPDATE_BUTTON}
+             </Button>
+        </div>
+    )
+}
+
+export function RemoveComponent() {
+    return (
+        <div>
+             <Button 
+                type="primary" 
+                style = {{backgroundColor: "red"}}
+                >{lang.REMOVE_BUTTON}
+             </Button>
+        </div>
+    )
+}
+
+export function ActiveDeactiveComponent(props) {
+    const {isActive} = props;
+
+    return (
+        <div>
+             <Button 
+                type="primary" 
+                style = {isActive ? {backgroundColor: "#A0C334"} : {backgroundColor: "#5D5D5D"}}
+                >{isActive ? lang.ACTIVE_BUTTON : lang.DEACTIVE_BUTTON}
+             </Button>
+        </div>
+    )
+}
+
+export function ListComponent(props) {
+    const { data, columns } = props;
+    const displayData = data.filter(item => item.display);
+
+    return (
+       <Table columns={columns} dataSource={displayData}/>
     );
 }

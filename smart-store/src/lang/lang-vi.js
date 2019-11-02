@@ -11,7 +11,16 @@ export const PACKAGE_SPECIFICATION_MENU = 'Quy cách';
 export const ADDRESS_MENU = 'Địa chỉ';
 
 
-
 export const SEARCH_PLACE_HOLDER = 'Nhập thông tin tìm kiếm';
 export const SEARCH_ICON = 'Tìm kiếm'
 export const ADD_ICON = 'Thêm'
+
+export const PACKAGE_SPECIFICATION_TITLE = 'QUY CÁCH';
+
+
+export const PACKAGE_SPECIFICATION_ADD_ITEM_BUTTON = 'Thêm quy cách';
+
+export const UPDATE_BUTTON = 'Cập nhật';
+export const REMOVE_BUTTON = 'Loại bỏ';
+export const ACTIVE_BUTTON = 'Kích hoạt';
+export const DEACTIVE_BUTTON = 'Vô hiệu';
