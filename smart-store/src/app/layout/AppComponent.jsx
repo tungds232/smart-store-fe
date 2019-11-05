@@ -5,9 +5,8 @@ import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import ContentComponent from './ContentComponent';
 
-import 'antd/dist/antd.css';
 import { Layout } from 'antd';
-import './app.css';
+import './app.scss';
 
 import {BrowserRouter as Router} from 'react-router-dom';
 

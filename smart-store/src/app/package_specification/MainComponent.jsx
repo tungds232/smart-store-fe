@@ -11,7 +11,7 @@ import SearchContainer from './SearchContainer';
 export function MainComponent(props) {
 
     return (
-        <div>
+        <div className="packageSprcification">
             <HeaderComponent SearchContainer={SearchContainer} headerTitle={lang.PACKAGE_SPECIFICATION_TITLE} addtionTitle={lang.PACKAGE_SPECIFICATION_ADD_ITEM_BUTTON} />
             <ListComponent data={data} columns={columns} />
             <Modal

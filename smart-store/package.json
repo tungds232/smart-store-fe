@@ -5,6 +5,7 @@
   "dependencies": {
     "@svgr/webpack": "^4.3.3",
     "antd": "^3.24.0",
+    "node-sass": "^4.13.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",

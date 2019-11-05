@@ -1,6 +1,5 @@
 import React from 'react';
 
-import 'antd/dist/antd.css';
 import { Menu, Icon, Switch} from 'antd';
 import Sider from 'antd/lib/layout/Sider';
 import * as lang from '../../lang/lang-vi';
@@ -22,7 +21,6 @@ function MenuComponent() {
     return (
         <Sider >
             <Menu
-                style={{ width: 256 }}
                 mode="inline"
                 theme = "dark"
             >
