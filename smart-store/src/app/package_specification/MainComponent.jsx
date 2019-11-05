@@ -9,15 +9,16 @@ import SearchContainer from './SearchContainer';
 
 
 export function MainComponent(props) {
+
     return (
         <div>
             <HeaderComponent SearchContainer={SearchContainer} headerTitle={lang.PACKAGE_SPECIFICATION_TITLE} addtionTitle={lang.PACKAGE_SPECIFICATION_ADD_ITEM_BUTTON} />
-            {/* <ListComponent data={data} columns={columns} /> */}
+            <ListComponent data={data} columns={columns} />
             <Modal
                 title="Update"
-                visible={visible}
-                onOk={()=>visible = false}
-                onCancel={()=>visible = false}
+                // visible={visible}
+                // onOk={()=>visible = false}
+                // onCancel={()=>visible = false}
              >
                 <Form>
                     <Form.Item>
@@ -57,14 +58,14 @@ export function MainComponent(props) {
 //     )
 // }
 
-// export function ListComponent(props) {
-//     const { data, columns } = props;
-//     const display_data = data.filter(item => item.display);
+export function ListComponent(props) {
+    const { data, columns } = props;
+    const display_data = data.filter(item => item.display);
 
-//     return (
-//        <Table columns={columns} dataSource={display_data}/>
-//     );
-// }
+    return (
+       <Table columns={columns} dataSource={display_data}/>
+    );
+}
 
 // export function HeaderComponent(props) {
 //     return (

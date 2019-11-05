@@ -57,7 +57,7 @@ export function UpdateComponent() {
              <Button 
                 type="primary" 
                 style = {{backgroundColor: "blue"}}
-                onClick={()=>visible = true}
+                // onClick={()=>visible = true}
                 >{lang.UPDATE_BUTTON}
              </Button>
         </div>
