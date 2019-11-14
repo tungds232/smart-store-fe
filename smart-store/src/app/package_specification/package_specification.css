@@ -1,0 +1,8 @@
+.search, .add-new-item {
+    float: right;
+    margin: 10px
+}
+
+.header {
+    margin-bottom: 50px;
+}

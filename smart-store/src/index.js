@@ -9,6 +9,8 @@ import AppComponent from '././app/layout/AppComponent';
 
 import store from './store/store';
 
+// import store from './store/store';
+
 ReactDOM.render(<Provider store={store}>
                     <AppComponent />
                 </Provider>, 

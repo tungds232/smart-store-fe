@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import { Layout } from 'antd';
 
-import {MainComponent as Package_Specification} from '../package_specification/MainComponent'
+import Package_Specification from '../package_specification/MainComponent'
 
 const { Content } = Layout;
 

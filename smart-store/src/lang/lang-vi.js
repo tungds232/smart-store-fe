@@ -20,7 +20,22 @@ export const PACKAGE_SPECIFICATION_TITLE = 'QUY CÁCH';
 
 export const PACKAGE_SPECIFICATION_ADD_ITEM_BUTTON = 'Thêm quy cách';
 
-export const UPDATE_BUTTON = 'Cập nhật';
-export const REMOVE_BUTTON = 'Loại bỏ';
-export const ACTIVE_BUTTON = 'Kích hoạt';
-export const DEACTIVE_BUTTON = 'Vô hiệu';
+export const BUTTON_UPDATE = 'Cập nhật';
+export const BUTTON_REMOVE = 'Loại bỏ';
+export const BUTTON_ACTIVE = 'Kích hoạt';
+export const BUTTON_DEACTIVE = 'Vô hiệu';
+export const BUTTON_DETAIL = 'Chi tiết';
+
+export const PACKAGE_SPECIFICATION_LIST_ORDER_NUMBER = "STT";
+export const PACKAGE_SPECIFICATION_LIST_PARENT_PACKAGE_SPECIFICATION = "Quy cách";
+export const PACKAGE_SPECIFICATION_LIST_QUANTITY = "Số lượng";
+export const PACKAGE_SPECIFICATION_LIST_CHILD_PACKAGE_SPECIFICATION = "Quy cách con";
+export const PACKAGE_SPECIFICATION_LIST_STATUS = "Trạng thái";
+export const PACKAGE_SPECIFICATION_LIST_ACTION = "Thao tác";
+
+export const STATUS_USED = "Sử dụng";
+export const STATUS_UNUSED = "Chưa sử dụng";
+export const STATUS_BLOCKED = "Khóa";
+
+export const PACKAGE_SPECIFICATION_FETCH_ERROR_TITLE = "Lỗi tải dữ liệu";
+export const PACKAGE_SPECIFICATION_FETCH_ERROR_MESSAGE = "Không tải dữ liệu thành công";
