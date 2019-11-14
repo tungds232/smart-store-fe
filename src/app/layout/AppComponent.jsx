@@ -16,12 +16,12 @@ function AppComponent() {
     return (
         <Router>
             <Layout>
-                <HeaderComponent />
+                {/* <HeaderComponent /> */}
                 <Layout hasSider={true}>
                     <MenuComponent />
                     <ContentComponent />   
                 </Layout>
-                <FooterComponent />
+                {/* <FooterComponent /> */}
             </Layout> 
         </Router>
     )

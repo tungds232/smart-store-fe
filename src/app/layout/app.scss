@@ -1,6 +1,29 @@
 @import '~antd/dist/antd.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
-.mainContent {
-    padding-left: 25px;
-    padding-right: 25px;
+#root {
+    .ant-layout {
+        section.ant-layout-has-sider {
+            #content {
+                width: 100%;
+
+                header {
+                    color: white;
+                    div {
+                        float: right;
+                    }
+                }
+
+                .mainContent {
+                    padding: 25px;
+                    min-height: 100vh;
+                }
+
+                footer {
+                    background: silver;
+                }
+            }
+            
+        }
+    }
 }
