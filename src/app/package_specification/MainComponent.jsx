@@ -348,7 +348,7 @@ class MainContent extends Component {
         return (
             <div>
                 <List data={ this.props.data } />
-                <FetchError />
+                {/* <FetchError /> */}
             </div>
         )
     }

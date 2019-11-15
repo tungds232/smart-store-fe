@@ -12,14 +12,10 @@ const { Content } = Layout;
 
 function ContentComponent({ match }) {
     return (
-        <div id="content">
-            <HeaderComponent />
-            <Content className="mainContent">
-                <Route path="/Package-Specification" component={Package_Specification}></Route>
-            </Content>
-            <FooterComponent />
-        </div>
-    )
+        <Content className="mainContent">
+            <Route path="/Package-Specification" component={Package_Specification}></Route>
+        </Content>
+    );
 }
 
 export default ContentComponent;
