@@ -39,3 +39,5 @@ export const STATUS_BLOCKED = "Khóa";
 
 export const PACKAGE_SPECIFICATION_FETCH_ERROR_TITLE = "Lỗi tải dữ liệu";
 export const PACKAGE_SPECIFICATION_FETCH_ERROR_MESSAGE = "Không tải dữ liệu thành công";
+
+export const FOOTER_TEXT = "Smart Store ©2019-2020 Created by Thunder Storm Team";

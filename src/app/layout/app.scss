@@ -2,6 +2,27 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 #root {
+    .ant-layout-sider {
+        .logo {
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 16px;
+          }
+    }
+    header {
+        #dropdown-group {
+            float: right;
+            padding-right: 10px;
+            .ant-btn {
+                margin-right: 5px;
+                border: unset;
+                img {
+                    padding-right: 5px;
+                }
+            }   
+        }
+    }
+
     .mainContent {
         padding: 30px;
     }
@@ -10,4 +31,18 @@
         padding-right: 10px;
         float: right;
     }
+}
+
+.anticon {
+    vertical-align: unset;
+}
+
+.ant-dropdown {
+    .anticon {
+        padding-right: 5px;
+    }
+}
+
+#dropdown-basic:after {
+    content: unset;
 }

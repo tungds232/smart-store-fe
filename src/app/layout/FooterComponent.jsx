@@ -1,12 +1,12 @@
 import React from 'react';
-
-// import 'antd/dist/antd.css';
 import { Layout } from 'antd';
+
+import * as lang from "../../lang/lang-vi";
 
 const { Footer } = Layout;
 
 function FooterComponent() {
-    return <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>;
+    return <Footer style={{ textAlign: 'center' }}>{lang.FOOTER_TEXT}</Footer>;
 }
 
 export default FooterComponent;
