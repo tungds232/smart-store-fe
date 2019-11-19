@@ -15,6 +15,7 @@ import {
 
 import FetchError from "./FetchErrorContainer";
 import List from "././ListComponent";
+import AddItemButton from "./AddItemButton";
 
 // import {HeaderComponent} from '../../common/component';
 // import SearchContainer from './SearchContainer';
@@ -24,7 +25,7 @@ import List from "././ListComponent";
 
 const { Search } = Input;
 const { Option } = Select;
-const PACKAGE_SPECIFICATION_URL = "http://192.168.0.102:8887/test.jsonx";
+const PACKAGE_SPECIFICATION_URL = "http://192.168.0.102:8887/test.json";
 const PACKAGE_SPECIFICATION_DELETE_URL = "http://192.168.0.102:8887/delete.json";
 
 // export class MainComponent extends Component {
@@ -345,10 +346,16 @@ class MainContent extends Component {
     }
 
     render() {
+        // console.log(this.props.data);
         return (
             <div>
-                <List data={ this.props.data } />
-                {/* <FetchError /> */}
+                <div>
+                    <AddItemButton data={this.props.data}/>
+                </div>
+                <div>
+                    <List data={ this.props.data } />
+                    {/* <FetchError /> */}
+                </div>
             </div>
         )
     }

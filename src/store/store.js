@@ -18,7 +18,12 @@ const intialState = {
                 "block": false,
                 "detail": true
             },
-            "key": 0
+            "key": 0,
+            "id": 1,
+            "children": [
+                {"name": "Lon nhỏ 1", "quantities": 10},
+                {"name": "Lon nhỏ 2", "quantities": 20}
+            ]
         },
     
         {
@@ -32,7 +37,12 @@ const intialState = {
                 "block": false,
                 "detail": true
             },
-            "key": 1
+            "key": 1,
+            "id": 2,
+            "children": [
+                {"name": "Lon nhỏ 1", "quantities": 10},
+                {"name": "Lon nhỏ 2", "quantities": 20}
+            ]
         },
     
         {
@@ -46,7 +56,12 @@ const intialState = {
                 "block": false,
                 "detail": true
             },
-            "key": 2
+            "key": 2,
+            "id": 3,
+            "children": [
+                {"name": "Lon nhỏ 1", "quantities": 10},
+                {"name": "Lon nhỏ 2", "quantities": 20}
+            ]
         }
     ],
     shownData: [
