@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { Menu, Icon, Switch, Button, Layout } from 'antd';
+import { Menu, Icon, Layout } from 'antd';
 import * as lang from '../../lang/lang-vi';
 
-import { Route, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 import OrderSvg from './asset/order.svg';
 import DiscountSvg from './asset/discount.svg';

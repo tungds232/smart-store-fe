@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import FetchError  from '../../common/FetchError';
-import {closeFetchError} from './actions';
+import {closeFetchError} from './Action/actions';
 
 const mapStateToProps = ( state ) => {
     return {

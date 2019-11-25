@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Menu, Dropdown, Button, Icon, message } from 'antd';
+import { Layout, Icon} from 'antd';
 
 import DropDownComponent from "./DropDownComponent";
 
@@ -26,7 +26,7 @@ function HeaderComponent() {
     {
       content: (
         <div>
-          <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" style={{width: "25px", borderRadius: "50%"}} />
+          <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" style={{width: "25px", borderRadius: "50%"}} alt="user" />
           Username
         </div>
       ),
@@ -43,7 +43,7 @@ function HeaderComponent() {
     }
   ];
 
-  const dropDown = dropDownItems.map((dropDownItem) => <DropDownComponent dropDownItem={dropDownItem} />)
+  const dropDown = dropDownItems.map((dropDownItem, index) => <DropDownComponent key={index} dropDownItem={dropDownItem} />)
 
   return (
     <Header style={{ background: '#fff', padding: 0 }}>

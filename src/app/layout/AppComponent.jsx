@@ -5,13 +5,10 @@ import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import ContentComponent from './ContentComponent';
 
-// import { Layout } from 'antd';
 import './app.scss';
 
 import {BrowserRouter as Router} from 'react-router-dom';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+import { Layout } from 'antd';
 
 function AppComponent() {
     return (

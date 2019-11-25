@@ -3,9 +3,6 @@ import { Route } from 'react-router-dom';
 
 import { Layout } from 'antd';
 
-import HeaderComponent from './HeaderComponent';
-import FooterComponent from './FooterComponent';
-
 import Package_Specification from '../package_specification/MainComponent'
 
 const { Content } = Layout;

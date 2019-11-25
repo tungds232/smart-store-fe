@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Menu, Dropdown, Button, Icon, message } from 'antd';
+import { Menu, Dropdown, Button } from 'antd';
 
 function DropDownComponent(props) {
     const { dropDownItem } = props;
