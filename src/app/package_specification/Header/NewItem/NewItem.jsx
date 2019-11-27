@@ -10,6 +10,7 @@ class NewItem extends Component {
         super( props );
 
         this.state = {
+            name: null,
             quantities: 1,
             selectedChildId: 0,
             children: [],
@@ -50,7 +51,17 @@ class NewItem extends Component {
         });
     };
 
-    addItemHandler = () => {console.log("Add new item")};
+    inputNameHandler = (name) => {this.setState({name: "Test"})};
+
+    addItemHandler = () => {
+        const data = {
+            name: this.state.name,
+            quantities: this.state.quantities,
+            childID: this.state.selectedChildId
+        };
+
+        this.props.submit(data);
+    };
 
     closeModalHandler = () => this.setState({modalVisible: false});
 
@@ -64,6 +75,7 @@ class NewItem extends Component {
                     visible={this.state.modalVisible}
                     add={this.addItemHandler}
                     close={this.closeModalHandler}
+                    inputName={this.inputNameHandler}
                     changeQuantities={this.changeQuantitiesHandler}
                     select={this.selectChildItemHandler}/>
             </div>

@@ -2,10 +2,20 @@ import { connect } from "react-redux";
 
 import NewItem from "./NewItem";
 
-const mapStateToProps = (state) => (
+import axios from "../../../../axios";
+
+const mapStateToProps = state => (
     {
-        data: state.data
+        data: state.package_specification.data
     }
 )
 
-export default connect(mapStateToProps, null)(NewItem);
+const mapDispatchToProps = dispatch => ({
+    submit: (data) => {
+        axios.post("/package_specification.json", data)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewItem);

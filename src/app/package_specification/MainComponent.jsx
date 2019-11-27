@@ -33,8 +33,8 @@ class MainContent extends Component {
 
 const mapStateToProps = ( state ) => {
     return {
-        data: state.data,
-        shownData: state.shownData
+        data: state.package_specification.data,
+        shownData: state.package_specification.shownData
     }
 }
 

@@ -5,7 +5,7 @@ import { search as seachAction } from "../../Action/actions";
 import Search from "./SearchItem";
 
 const mapStateToProps = ( state ) => ({
-    data: state.data
+    data: state.package_specification.data
 });
 
 const mapDispatchToProps = ( dispatch ) => ({

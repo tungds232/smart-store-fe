@@ -10,7 +10,7 @@ const newItemModal = ( props ) => {
         <Modal
             title="Thêm quy cách"
             visible={props.visible}
-            onOK={props.add}
+            onOk={props.add}
             onCancel={props.close}
             okText="Tạo mới"
             cancelText="Hủy bỏ"
@@ -18,7 +18,7 @@ const newItemModal = ( props ) => {
         >
             <Form >
                 <Form.Item label="Quy cách">
-                    <Input placeholder="Tên quy cách"/>
+                    <Input placeholder="Tên quy cách" onChange={props.inputName}/>
                 </Form.Item>
                 <Form.Item label="Số lượng">
                     <InputNumber min={1} defaultvalue={1} onChange={props.changeQuantities}/>
