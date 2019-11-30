@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { Table, Divider, PageHeader, Tag, Button, Statistic, Descriptions, Row, Input, Modal, Form, Result, Select, notification } from 'antd';
+import { Spin, Icon } from 'antd';
 
 import './package_specification.css';
 
@@ -21,6 +21,11 @@ class MainContent extends Component {
     }
 
     render() {
+        // const loading =  <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} spin />} />;
+        // if (this.props.isLoading) {
+        //     loading = null;
+        // }
+
         return (
             <div>
                <Header />

@@ -14,10 +14,10 @@ class Delete extends Component {
         };
     }
 
-    errorNotification = () => (
+    errorNotification = (description) => (
         notification.open({
             message: "Xóa bị lỗi",
-            description: "Xóa bị lỗi"
+            description
         }));
 
     successNotification = () => (
@@ -28,16 +28,19 @@ class Delete extends Component {
 
     showModalhandler = () => this.setState({modalVisible: true});
 
-    deleteHandler = () => {console.log("Delete")};
+    deleteHandler = () => {
+        this.props.delete(this.props.id);
+        this.setState({modalVisible: false});
+    };
 
     closeHandler = () => this.setState({modalVisible: false});
 
     render () {
         return (
             <div>
-                <Button onClick={this.showModalhandler}>Xóa</Button>
+                <Button disabled={this.props.disabled} onClick={this.showModalhandler}>Loại bỏ</Button>
                 <ConfirmModal 
-                    visible={this.state.visible}
+                    visible={this.state.modalVisible}
                     delete={this.deleteHandler}
                     close={this.closeHandler}/>
             </div>

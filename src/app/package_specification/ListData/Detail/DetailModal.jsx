@@ -7,8 +7,8 @@ import DetailList from "./DetailList";
 const detailModal = ( props ) => (
     <Modal
         title="Chi tiết quy cách"
-        visible={this.props.visible}
-        onOK={this.prop.close}
+        visible={props.visible}
+        onOk={props.close}
         okText="Đóng"
         cancelButtonProps={{hidden:true}}
         closable={true}

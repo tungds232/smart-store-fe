@@ -5,7 +5,6 @@ import { Select } from "antd";
 const { Option } = Select;
 
 const selectionItem = ( props ) => {
-    console.log("Selection ", props.selection);
     const selections = props.selection.map( item => <Option value={item.id} key={item.id}>{item.name}</Option> );
 
     return (

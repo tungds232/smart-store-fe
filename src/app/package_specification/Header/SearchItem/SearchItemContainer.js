@@ -19,8 +19,12 @@ const mergeProps = (stateProps, dispatchProps) => {
             if (keyWord === "") {
                 shownData = stateProps.data;
             } else {
-                const findItem = item => Object.keys(item).filter(key => item[key].toString().includes(keyWord)).length > 0;               
+                const fields = ["name", "quantities", "child"];
+                
+                const findItem = item => fields.filter(key => item[key].toString().toLowerCase().includes(keyWord.toLowerCase())).length > 0;
+  
                 shownData = stateProps.data.filter(findItem);
+                
             }
 
             dispatchProps.onSearch(shownData);

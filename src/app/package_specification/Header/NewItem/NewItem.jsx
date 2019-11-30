@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 
 import NewItemModal from "./NewItemModal";
-import { exists } from 'fs';
 
 class NewItem extends Component {
     constructor( props ) {
         super( props );
 
         this.state = {
-            name: null,
+            name: "",
             quantities: 1,
             selectedChildId: 0,
             children: [],
@@ -51,7 +50,7 @@ class NewItem extends Component {
         });
     };
 
-    inputNameHandler = (name) => {this.setState({name: "Test"})};
+    inputNameHandler = (event) => this.setState({name: event.target.value});
 
     addItemHandler = () => {
         const data = {

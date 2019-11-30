@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import {BrowserRouter as Router} from 'react-router-dom';
+
+import { Layout } from 'antd';
 
 import MenuComponent from './MenuComponent';
 import HeaderComponent from './HeaderComponent';
@@ -7,22 +11,32 @@ import ContentComponent from './ContentComponent';
 
 import './app.scss';
 
-import {BrowserRouter as Router} from 'react-router-dom';
-import { Layout } from 'antd';
 
-function AppComponent() {
-    return (
-        <Router>
-            <Layout style={{ minHeight: '100vh' }}>
-                <MenuComponent />
-                <Layout>
-                    <HeaderComponent />
-                    <ContentComponent />
-                    <FooterComponent />
+
+class AppComponent extends Component {
+    constructor( props ) {
+        super(props);
+    }
+
+    componentDidMount() {
+        console.log("Component did mount");
+        this.props.fetchPackSpecData();
+    }
+
+    render () {
+        return (
+            <Router>
+                <Layout style={{ minHeight: '100vh' }}>
+                    <MenuComponent />
+                    <Layout>
+                        <HeaderComponent />
+                        <ContentComponent />
+                        <FooterComponent />
+                    </Layout>
                 </Layout>
-            </Layout>
-        </Router>
-    )
+            </Router>
+        )
+    }
 }
 
 export default AppComponent;

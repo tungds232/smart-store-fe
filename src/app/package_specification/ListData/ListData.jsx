@@ -1,15 +1,12 @@
 import React from "react";
 
-import { Table, Tag, Button } from 'antd';
+import { Table, Tag, Button, Row } from 'antd';
 
-import DeleteButton from "./Delete/Delete";
+import DeleteButton from "./Delete/DeleteContainer";
 import ActiveButton from "./ActiveDeactive/ActiveDeactive";
 import DetailButton from "./Detail/Detail"
 
 const listData = ( props ) => {
-    const data = props.data;
-
-    console.log("List ", data);
     const columns = [
         {
           title: "STT",
@@ -20,57 +17,76 @@ const listData = ( props ) => {
         {
           title: "Quy cách",
           dataIndex: "name",
-          key: "parent_package_specification",
+          key: "name",
         },
 
         {
           title: "Số lượng",
-          dataIndex: "quantity",
-          key: "quantity",
+          dataIndex: "quantities",
+          key: "quantities",
         },
 
         {
             title: "Quy cách con",
-            dataIndex: "childPackageSpecification",
-            key: "child_pakage_specification",
+            dataIndex: "child",
+            key: "child",
         },
 
         {
             title: "Trạng thái",
-            dataIndex: "status",
             key: "status",
-            render: status => {
-                    switch ( status ) {
-                        case "used":
-                            return <Tag color="green">Sử dụng</Tag>;
-                        case "unused":
-                            return <Tag color="blue">Chưa sử dụng</Tag>;
-                        case "blocked":
-                            return <Tag color="red">Vô hiệu</Tag>;
-                        default:
-                            return <Tag color="green">Chưa sử dụng</Tag>;
-                    }
+            render: (text, record) => {
+                let use =   <Tag color="grey" key="used">Chưa sử dụng</Tag>;
+                if (record.used) {
+                    use = <Tag color="green" key="used">Đang sử dụng</Tag>;
                 }
+
+                let active = <Tag color="grey" key="active">Hoạt động</Tag>;
+                if (record.active) {
+                    active = <Tag color="green" key="active">Vô hiệu</Tag>;
+                }
+
+                return (
+                    <div>
+                        {use}
+                        {active}
+                    </div>
+                );
+            }
         },
 
-        // {
-        //     title: "Thao tác",
-        //     dataIndex: "action",
-        //     key: "action",
-        //     render: action => {
-        //         <p>Liem</p>
-        //         // const deleteButton = action.delete === true ? <Button style={{backgroundColor: "green" , color: "white"}}>{lang.BUTTON_REMOVE}</Button> : <Button disabled={true} style={{backgroundColor: "yellow"}}>{lang.BUTTON_REMOVE}</Button>;
-        //         // // const deleteButton = action.delete === true ? <DeleteButtonComponent style={{backgroundColor: "green" , color: "white"}}>{lang.BUTTON_REMOVE}</DeleteButtonComponent> : <DeleteButtonComponent disabled={true} style={{backgroundColor: "yellow"}}>{lang.BUTTON_REMOVE}</DeleteButtonComponent>;
-        //         // const activeButton = action.block === true ? <Button style={{backgroundColor: "green", color: "white"}}>{lang.BUTTON_ACTIVE}</Button> : <Button style={{backgroundColor: "yellow"}}>{lang.BUTTON_DEACTIVE}</Button>;
-        //         // const detailButton = action.detail === true ? <Button style={{backgroundColor: "green", color: "white"}}>{lang.BUTTON_DETAIL}</Button> : <Button disabled={true} style={{backgroundColor: "yellow"}}>{lang.BUTTON_REMOVE}</Button>;
+        {
+            title: "Thao tác",
+            key: "action",
+            render: (text , record) => {
+                console.log("Record:", record);
+                let remove =  <DeleteButton disabled={false} id={record.id} />;
+                if (record.used) {
+                    remove =<DeleteButton disabled={true} />;
+                };
 
-        //         // return <span><span>{deleteButton}</span> <span>{activeButton}</span> <span>{detailButton}</span></span>;
-        //     }
-        // },
+                let active = <Tag color="red" key="remove">Kích hoạt</Tag>;
+                if (record.active) {
+                    active = <Tag color="green" key="remove">Vô hiệu</Tag>;
+                }
+
+                const detail = [{name: record.name, 
+                                quantities: ""},
+                                ...record.children];
+
+                return (
+                    <div>
+                        {remove}
+                        {active}
+                        <DetailButton data={detail}/>
+                    </div>
+                );
+            }
+        }
       ];
 
     return (
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={props.data} rowKey="id"/>
     );
 };
 
