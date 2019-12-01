@@ -8,7 +8,6 @@ const search = ( props ) => (
                 placeholder="Nhập thông tin tìm kiếm"
                 enterButton="Tìm kiếm"
                 onSearch={props.search}
-                style={{width: 300}}
             />
 );
 

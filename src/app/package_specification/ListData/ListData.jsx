@@ -65,9 +65,14 @@ const listData = ( props ) => {
                     remove =<DeleteButton disabled={true} />;
                 };
 
-                let active = <Tag color="red" key="remove">Kích hoạt</Tag>;
-                if (record.active) {
-                    active = <Tag color="green" key="remove">Vô hiệu</Tag>;
+                // let active = <Tag color="red" key="remove">Kích hoạt</Tag>;
+                // if (record.active) {
+                //     active = <Tag color="green" key="remove">Vô hiệu</Tag>;
+                // }
+
+                let active = <Button className="tag active">Kích Hoạt</Button>;
+                if(record.active){
+                    active = <Button className="tag inactivate">Vô hiệu</Button>;
                 }
 
                 const detail = [{name: record.name, 
@@ -75,7 +80,7 @@ const listData = ( props ) => {
                                 ...record.children];
 
                 return (
-                    <div>
+                    <div className="group-button">
                         {remove}
                         {active}
                         <DetailButton data={detail}/>

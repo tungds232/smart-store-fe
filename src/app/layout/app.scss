@@ -25,6 +25,76 @@
 
     .mainContent {
         padding: 30px;
+
+        .header-one {
+            display: flex;
+            .ant-page-header {
+                padding-left: 0;
+                padding-bottom: 20px;
+                padding-right: 10px;
+                padding-top: 0;
+            }
+        }
+
+        .header-two {
+            padding-bottom: 20px;
+            .ant-input-search {
+                position: relative;
+                widows: 100%;
+                .ant-input-wrapper {
+                    position: absolute;
+                    right: 0;
+                    width: 50%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .ant-spin-nested-loading {
+            .ant-spin-container {
+                .ant-table {
+                    .ant-table-content {
+                        .ant-table-body {
+                            table {
+                                .ant-table-thead {
+                                    tr {
+                                        th {
+                                            text-align: center;;
+                                        }
+                                    }
+                                }
+                                .ant-table-tbody {
+                                    .ant-table-row {
+                                        td {
+                                            text-align: center;
+                                        }
+                                        .group-button {
+                                            display: inline-flex;
+                                            button {
+                                                margin-right: 2px;
+                                            }
+                                            .tag {
+                                                pointer-events: none;
+                                            }
+                                            .active {
+                                                color: #f5222d;
+                                                background: #fff1f0;
+                                                border-color: #ffa39e;
+                                            }
+                                            .inactivate {
+                                                color: #52c41a;
+                                                border-color: #b7eb8f;
+                                                background: #f6ffed;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .userInfo {
