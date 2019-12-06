@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
                 size: 100,
             }
         })
-        .then(res => res.data) // Vì khi nhận được json, thằng axios nó bỏ chuối json của mình vào data của object nó
+        .then(res => res.data)
         .then(response => {
             dispatch(packSpecFetchData(response.data.data));
         })

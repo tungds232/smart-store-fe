@@ -13,10 +13,3 @@ export const fetchData = (data) => ({
         data
     }
 });
-
-export const newData = (data) => ({
-    type: NEW_DATA,
-    payload: {
-        data
-    }
-});

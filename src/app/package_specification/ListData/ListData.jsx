@@ -7,8 +7,6 @@ import ActiveButton from "./ActiveDeactive/ActiveDeactive";
 import DetailButton from "./Detail/DetailContainer"
 
 const listData = ( props ) => {
-    console.log("SHOWN DATA: ", props.data);
-
     const columns = [
         {
           title: "STT",
@@ -61,8 +59,6 @@ const listData = ( props ) => {
             title: "Thao tác",
             key: "action",
             render: (text , record) => {
-                console.log("Record:", record);
-
                 let remove =  <DeleteButton disabled={false} id={record.id} />;
                 if (record.isUsed) {
                     remove =<DeleteButton disabled={true} />;

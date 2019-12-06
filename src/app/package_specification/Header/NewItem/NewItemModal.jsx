@@ -6,7 +6,6 @@ import SelectionItem from "./SelectionItem";
 import ChildrenItem from "./ChildrenItem"
 
 const newItemModal = ( props ) => {
-    console.log("DISABLE: ", props.disableQuantity);
     return (
         <Modal
             title="Thêm quy cách"
