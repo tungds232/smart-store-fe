@@ -10,10 +10,11 @@ const initState = {
 
 const reducer = ( state = initState, action ) => {
     switch( action.type ) {
-        case FETCH_DATA:
+         case FETCH_DATA:
             return {...state, 
                 data: action.payload.data, 
-                shownData: action.payload.data, 
+                shownData: action.payload.data.map((item, index) => ({...item, order_number: index + 1,
+                    child: item.child ? item.child.name : null})), 
                 fetchError: action.payload.error,
                 isLoading: false};
 

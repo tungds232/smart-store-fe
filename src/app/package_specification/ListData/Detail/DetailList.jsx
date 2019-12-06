@@ -3,10 +3,12 @@ import React from "react";
 import { Descriptions } from "antd";
 
 const detailList = ( props ) => {
-    const details = props.data.map(item => <Descriptions.Item label={item.name}>{item.quantities}</Descriptions.Item>);
+    const {data} =  props;
+
+    const details = Object.keys(data).map(key => <Descriptions.Item label={key} key={key}>{data[key]}</Descriptions.Item>);
 
     return (
-        <Descriptions>
+        <Descriptions column={1}>
             {details}
         </Descriptions>
     );

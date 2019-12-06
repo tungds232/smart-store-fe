@@ -5,31 +5,26 @@ import { search as seachAction } from "../../Action/actions";
 import Search from "./SearchItem";
 
 const mapStateToProps = ( state ) => ({
-    data: state.package_specification.data
+    data: state.package_specification.data,
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
     onSearch: shownData => dispatch(seachAction(shownData))
 });
 
-const mergeProps = (stateProps, dispatchProps) => {
-    return {
-        search: keyWord => {
-            let shownData;
-            if (keyWord === "") {
-                shownData = stateProps.data;
-            } else {
-                const fields = ["name", "quantities", "child"];
-                
-                const findItem = item => fields.filter(key => item[key].toString().toLowerCase().includes(keyWord.toLowerCase())).length > 0;
-  
-                shownData = stateProps.data.filter(findItem);
-                
-            }
+const mergeProps = (stateProps, dispatchProps) => ({
+    search: keyWord => {
+        let shownData = stateProps.data.map((item, index) => ({...item, order_number: index + 1,
+            child: item.child ? item.child.name : null}));
+        if (keyWord !== "") {
+            const fields = ["name", "quantities", "child"];
+            const findItem = item => fields.filter(key => item[key] !== null? item[key].toString().toLowerCase().includes(keyWord.toLowerCase()) : false).length > 0;
 
-            dispatchProps.onSearch(shownData);
+            shownData = shownData.filter(findItem);
         }
+
+        dispatchProps.onSearch(shownData);
     }
-} 
+})
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Search);

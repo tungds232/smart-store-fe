@@ -4,13 +4,15 @@ import { Table, Tag, Button, Row } from 'antd';
 
 import DeleteButton from "./Delete/DeleteContainer";
 import ActiveButton from "./ActiveDeactive/ActiveDeactive";
-import DetailButton from "./Detail/Detail"
+import DetailButton from "./Detail/DetailContainer"
 
 const listData = ( props ) => {
+    console.log("SHOWN DATA: ", props.data);
+
     const columns = [
         {
           title: "STT",
-          dataIndex: "id",
+          dataIndex: "order_number",
           key: "order_number",
         },
 
@@ -37,13 +39,13 @@ const listData = ( props ) => {
             key: "status",
             render: (text, record) => {
                 let use =   <Tag color="grey" key="used">Chưa sử dụng</Tag>;
-                if (record.used) {
+                if (record.isUsed) {
                     use = <Tag color="green" key="used">Đang sử dụng</Tag>;
                 }
 
-                let active = <Tag color="grey" key="active">Hoạt động</Tag>;
-                if (record.active) {
-                    active = <Tag color="green" key="active">Vô hiệu</Tag>;
+                let active = <Tag color="grey" key="active">Vô hiệu</Tag>;
+                if (record.isActive) {
+                    active = <Tag color="green" key="active">Hoạt động</Tag>;
                 }
 
                 return (
@@ -60,8 +62,9 @@ const listData = ( props ) => {
             key: "action",
             render: (text , record) => {
                 console.log("Record:", record);
+
                 let remove =  <DeleteButton disabled={false} id={record.id} />;
-                if (record.used) {
+                if (record.isUsed) {
                     remove =<DeleteButton disabled={true} />;
                 };
 
@@ -71,19 +74,15 @@ const listData = ( props ) => {
                 // }
 
                 let active = <Button className="tag active">Kích Hoạt</Button>;
-                if(record.active){
+                if(record.isActive){
                     active = <Button className="tag inactivate">Vô hiệu</Button>;
                 }
-
-                const detail = [{name: record.name, 
-                                quantities: ""},
-                                ...record.children];
 
                 return (
                     <div className="group-button">
                         {remove}
                         {active}
-                        <DetailButton data={detail}/>
+                        <DetailButton id={record.id}/>
                     </div>
                 );
             }

@@ -34,10 +34,10 @@ const mapDispatchToProps = ( dispatch) => ({
                     const data = Object.keys(response.data).map(key => response.data[key]);
                     dispatch(fetchData(data));
                 })
-                .catch(error => console.log(error));
+                .catch(error => errorNotification("Server xxx bị lỗi"));
             }
         })
-        .catch(error => { console.log(error) });
+        .catch(error => { errorNotification("Server bị lỗi") });
     }
 });
 

@@ -16,6 +16,7 @@ class Detail extends Component {
     closeDetailModalHandler = () => this.setState({modalVisible: false});
 
     render () {
+        console.log("DATA: ", this.props.data);
         return (
             <div>
                 <Button onClick={this.showDetailModalHandler}>Chi tiết</Button>

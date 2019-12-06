@@ -4,11 +4,9 @@ import NewItem from "./NewItem";
 
 import axios from "../../../../axios";
 
-const mapStateToProps = state => (
-    {
+const mapStateToProps = state => ({
         data: state.package_specification.data
-    }
-)
+});
 
 const mapDispatchToProps = dispatch => ({
     submit: (data) => {

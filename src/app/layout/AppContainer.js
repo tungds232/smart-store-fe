@@ -7,10 +7,9 @@ import {fetchData as packSpecFetchData} from "../package_specification/Action/ac
 
 const mapDispatchToProps = dispatch => ({
     fetchPackSpecData: () => {
-        axios.get("/pack_spec_data.json")
+        axios.get("/pack_spec_data/example.json")
         .then(response => {
-            const data = Object.keys(response.data).map(key => response.data[key]);
-            dispatch(packSpecFetchData(data));
+            dispatch(packSpecFetchData(response.data.data.data));
         })
         .catch(error => console.log(error));
     }
