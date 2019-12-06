@@ -2,7 +2,10 @@ import { connect } from "react-redux";
 
 import NewItem from "./NewItem";
 
-import axios from "../../../../axios";
+import axios from "../../../../services/axios";
+import * as api from "../../../../services/api";
+
+import {newData as packSpecNewData} from "../../../package_specification/Action/actions";
 
 const mapStateToProps = state => ({
         data: state.package_specification.data.filter(item => item.isActive )
@@ -10,9 +13,15 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     submit: (data) => {
-        axios.post("/package_specification.json", data)
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
+        console.log(data);
+        axios.post(`${api.PACKAGE_SPEFICATION}`, data)
+            .then(res => res.data)
+            .then(response => {
+                console.log(response);
+                dispatch(packSpecNewData(response.data.data));
+                dispatch
+            })
+            .catch(error => console.error(error));
     }
 });
 

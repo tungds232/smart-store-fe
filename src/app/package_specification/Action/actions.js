@@ -1,4 +1,4 @@
-import { SEARCH_ITEM, FETCH_DATA } from './types';
+import { SEARCH_ITEM, FETCH_DATA, NEW_DATA } from './types';
 
 export const search = (shownData) => ({
     type: SEARCH_ITEM,
@@ -14,3 +14,9 @@ export const fetchData = (data) => ({
     }
 });
 
+export const newData = (data) => ({
+    type: NEW_DATA,
+    payload: {
+        data
+    }
+});

@@ -6,7 +6,7 @@ import SelectionItem from "./SelectionItem";
 import ChildrenItem from "./ChildrenItem"
 
 const newItemModal = ( props ) => {
-    console.log("DISABLE: ", props.disableQuantities);
+    console.log("DISABLE: ", props.disableQuantity);
     return (
         <Modal
             title="Thêm quy cách"
@@ -22,7 +22,7 @@ const newItemModal = ( props ) => {
                     <Input placeholder="Tên quy cách" onChange={props.inputName}/>
                 </Form.Item>
                 <Form.Item label="Số lượng">
-                    <InputNumber disabled={props.disableQuantities} min={1} defaultvalue={1} onChange={props.changeQuantities}/>
+                    <InputNumber disabled={props.disableQuantity} min={1} defaultvalue={1} onChange={props.changeQuantity}/>
                 </Form.Item>
                 <Form.Item label="Quy cách con">
                     <SelectionItem 

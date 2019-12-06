@@ -24,8 +24,8 @@ const listData = ( props ) => {
 
         {
           title: "Số lượng",
-          dataIndex: "quantities",
-          key: "quantities",
+          dataIndex: "quantity",
+          key: "quantity",
         },
 
         {

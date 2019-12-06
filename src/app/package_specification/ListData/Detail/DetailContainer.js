@@ -12,13 +12,13 @@ const mapStateToProps = (state, ownProps) => {
 
     let childPackSpec = packSpecData.child;
     if (childPackSpec) {
-        let currentQuantities = packSpecData.quantities;
+        let currentQuantity = packSpecData.quantity;
         
-        data[childPackSpec.name] = currentQuantities;
+        data[childPackSpec.name] = currentQuantity;
 
         while (childPackSpec.child) {
-            currentQuantities *= childPackSpec.quantities;
-            data[childPackSpec.child.name] =  currentQuantities;
+            currentQuantity *= childPackSpec.quantity;
+            data[childPackSpec.child.name] =  currentQuantity;
 
             childPackSpec = childPackSpec.child;
         }

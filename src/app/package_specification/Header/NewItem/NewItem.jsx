@@ -12,11 +12,11 @@ class NewItem extends Component {
         
         this.state = {
             name: "",
-            quantities: 1,
+            quantity: 1,
             selectedChildId: 0,
             children: [],
             modalVisible: false,
-            disableQuantities: false
+            disableQuantity: false
         }
     }
 
@@ -28,21 +28,21 @@ class NewItem extends Component {
         let children = [];
         if (selectedPackSpec) {
             let currentChild = selectedPackSpec;
-            let currentQuantities = this.state.quantities;
+            let currentQuantity = this.state.quantity;
 
             
-            children.push({name: currentChild.name, quantities: currentQuantities});
+            children.push({name: currentChild.name, quantity: currentQuantity});
 
             while (currentChild.child) {
-                currentQuantities *= currentChild.quantities;
-                children.push({name: currentChild.child.name, quantities: currentQuantities});
+                currentQuantity *= currentChild.quantity;
+                children.push({name: currentChild.child.name, quantity: currentQuantity});
 
                 currentChild = currentChild.child;
             }
         }
         
         this.setState({
-            disableQuantities: selectedPackSpec ? false : true,
+            disableQuantity: selectedPackSpec ? false : true,
             selectedChildId,
             children
         });
@@ -50,23 +50,23 @@ class NewItem extends Component {
         console.log("UHUH", this.state);
     }
 
-    changeQuantitiesHandler = (quantities) => {
-        if (quantities <= 0) {
+    changeQuantityHandler = (quantity) => {
+        if (quantity <= 0) {
             return;
         }
 
         const children = [...this.state.children];
         const newChildren = children.map( item => ({
             name: item.name,
-            quantities: ( item.quantities / this.state.quantities ) * quantities
+            quantity: ( item.quantity / this.state.quantity ) * quantity
         }));
 
         this.setState({
-            quantities,
+            quantity,
             children: newChildren
         });
 
-        console.log("AHAH", quantities);
+        console.log("AHAH", quantity);
     };
 
     inputNameHandler = (event) => this.setState({name: event.target.value});
@@ -74,7 +74,7 @@ class NewItem extends Component {
     addItemHandler = () => {
         const data = {
             name: this.state.name,
-            quantities: this.state.selectedChildId === NOCHILD_ID ? 0 : this.state.quantities,
+            quantity: this.state.selectedChildId === NOCHILD_ID ? 0 : this.state.quantity,
             childID: this.state.selectedChildId === NOCHILD_ID ? null : this.state.selectedChildId
         };
 
@@ -93,11 +93,11 @@ class NewItem extends Component {
                     selection={this.props.data}
                     childrenData={this.state.children}
                     visible={this.state.modalVisible}
-                    disableQuantities= {this.state.disableQuantities}
+                    disableQuantity= {this.state.disableQuantity}
                     add={this.addItemHandler}
                     close={this.closeModalHandler}
                     inputName={this.inputNameHandler}
-                    changeQuantities={this.changeQuantitiesHandler}
+                    changeQuantity={this.changeQuantityHandler}
                     select={this.selectChildItemHandler}/>
             </div>
         );

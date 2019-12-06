@@ -17,7 +17,7 @@ const mergeProps = (stateProps, dispatchProps) => ({
         let shownData = stateProps.data.map((item, index) => ({...item, order_number: index + 1,
             child: item.child ? item.child.name : null}));
         if (keyWord !== "") {
-            const fields = ["name", "quantities", "child"];
+            const fields = ["name", "quantity", "child"];
             const findItem = item => fields.filter(key => item[key] !== null? item[key].toString().toLowerCase().includes(keyWord.toLowerCase()) : false).length > 0;
 
             shownData = shownData.filter(findItem);
