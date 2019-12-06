@@ -17,7 +17,6 @@ const mapDispatchToProps = dispatch => ({
         axios.post(`${api.PACKAGE_SPEFICATION}`, data)
             .then(res => res.data)
             .then(response => {
-                console.log("RES: ", response);
                 axios.get(`${api.PACKAGE_SPEFICATION}`,
                 {
                     params: {
