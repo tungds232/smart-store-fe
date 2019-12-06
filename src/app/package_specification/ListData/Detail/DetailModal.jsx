@@ -11,7 +11,7 @@ const detailModal = ( props ) => (
         onOk={props.close}
         okText="Đóng"
         cancelButtonProps={{hidden:true}}
-        closable={true}
+        closable={false}
     >
         <DetailList data={props.data}/>
     </Modal>
