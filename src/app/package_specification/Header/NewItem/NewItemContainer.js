@@ -5,7 +5,7 @@ import NewItem from "./NewItem";
 import axios from "../../../../axios";
 
 const mapStateToProps = state => ({
-        data: state.package_specification.data
+        data: state.package_specification.data.filter(item => item.isActive )
 });
 
 const mapDispatchToProps = dispatch => ({
