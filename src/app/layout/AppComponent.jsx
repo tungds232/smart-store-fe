@@ -19,7 +19,6 @@ class AppComponent extends Component {
     }
 
     componentDidMount() {
-        console.log("Component did mount");
         this.props.fetchPackSpecData();
     }
 

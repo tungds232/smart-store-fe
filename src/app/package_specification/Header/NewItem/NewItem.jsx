@@ -46,8 +46,6 @@ class NewItem extends Component {
             selectedChildId,
             children
         });
-
-        console.log("UHUH", this.state);
     }
 
     changeQuantityHandler = (quantity) => {
@@ -65,8 +63,6 @@ class NewItem extends Component {
             quantity,
             children: newChildren
         });
-
-        console.log("AHAH", quantity);
     };
 
     inputNameHandler = (event) => this.setState({name: event.target.value});

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Detail from "./Detail";
 
 const mapStateToProps = (state, ownProps) => {
-    console.log("MA: ");
     const packSpecData = state.package_specification.data.find(item => item.id === ownProps.id);
 
     let data = {
