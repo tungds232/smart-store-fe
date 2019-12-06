@@ -19,7 +19,6 @@ const mapDispatchToProps = dispatch => ({
             .then(response => {
                 console.log(response);
                 dispatch(packSpecNewData(response.data.data));
-                dispatch
             })
             .catch(error => console.error(error));
     }
