@@ -5,7 +5,8 @@ import { notification  } from "antd";
 import { fetchData } from "../../Action/actions";
 
 import Delete from "./Delete";
-import axios from "../../../../axios";
+import axios from "../../../../services/axios";
+import * as api from "../../../../services/api";
 
 
 const errorNotification = (description) => (
@@ -22,16 +23,23 @@ const successNotification = () => (
 
 const mapDispatchToProps = ( dispatch) => ({
     delete: (id) => {
-        axios.delete(`/package_specification.json/${id}`)
+        axios.delete(`${api.PACKAGE_SPEFICATION}/${id}`)
         .then(response => {
             if(response.data.error === true) {
                 errorNotification(response.data.message);
             } else {
                 successNotification();
 
-                axios.get("/pack_spec_data.json")
+                axios.get(`${api.PACKAGE_SPEFICATION}`, {
+                    params: {
+                        page: 0,
+                        size: 100
+                    }
+                })
+                .then(res => res.data)
                 .then(response => {
-                    const data = Object.keys(response.data).map(key => response.data[key]);
+                    const resData = response.data.data;
+                    const data = Object.keys(resData).map(key => resData[key]);
                     dispatch(fetchData(data));
                 })
                 .catch(error => errorNotification("Server xxx bị lỗi"));

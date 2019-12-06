@@ -3,7 +3,7 @@ import React from "react";
 import { Table, Tag, Button, Row } from 'antd';
 
 import DeleteButton from "./Delete/DeleteContainer";
-import ActiveButton from "./ActiveDeactive/ActiveDeactive";
+import ActiveButton from "./ActiveDeactive/ActiveContainer";
 import DetailButton from "./Detail/DetailContainer"
 
 const listData = ( props ) => {
@@ -73,9 +73,14 @@ const listData = ( props ) => {
                 //     active = <Tag color="green" key="remove">Vô hiệu</Tag>;
                 // }
 
-                let active = <Button className="tag active">Kích Hoạt</Button>;
+                // let active = <Button className="tag active">Kích Hoạt</Button>;
+                // if(record.isActive){
+                //     active = <Button className="tag inactivate">Vô hiệu</Button>;
+                // }
+
+                let active = <ActiveButton acitveClass="active" title="Kích hoạt" id={record.id} />;
                 if(record.isActive){
-                    active = <Button className="tag inactivate">Vô hiệu</Button>;
+                    active = <ActiveButton acitveClass="inactivate" title="Vô hiệu" id={record.id} />;
                 }
 
                 return (

@@ -28,16 +28,19 @@ class ActiveDeactive extends Component {
 
     showModalhandler = () => this.setState({modalVisible: true});
 
-    activeDeactiveHandler = () => {console.log("Active Deactive")};
+    activeDeactiveHandler = () => {
+        this.props.activeDeactive(this.props.id);
+        this.setState({modalVisible: false});
+    };
 
     closeHandler = () => this.setState({modalVisible: false});
 
     render () {
         return (
             <div>
-                <Button onClick={this.showModalhandler}>Kích hoạt</Button>
+                <Button onClick={this.showModalhandler} className={this.props.acitveClass}>{this.props.title}</Button>
                 <ConfirmModal 
-                    visible={this.state.visible}
+                    visible={this.state.modalVisible}
                     activeDeactive={this.activeDeactiveHandler}
                     close={this.closeHandler}/>
             </div>

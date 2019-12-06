@@ -5,9 +5,9 @@ import { Modal } from "antd";
 const confirmModal = ( props ) => (
     <Modal
         title="Kích hoạt quy cách"
-        visible={this.props.visible}
-        onOK={this.prop.activeDeactive}
-        onCancel={this.prop.close}
+        visible={props.visible}
+        onOk={props.activeDeactive}
+        onCancel={props.close}
         okText="Xác nhận"
         cancelText="Hủy"
         closable={true}
