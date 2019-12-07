@@ -71,7 +71,7 @@ class NewItem extends Component {
         const data = {
             name: this.state.name,
             quantity: this.state.selectedChildId === NOCHILD_ID ? 0 : this.state.quantity,
-            childID: this.state.selectedChildId === NOCHILD_ID ? null : this.state.selectedChildId
+            childId: this.state.selectedChildId === NOCHILD_ID ? null : this.state.selectedChildId
         };
 
         this.props.submit(data);
