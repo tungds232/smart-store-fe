@@ -13,7 +13,7 @@ class Delete extends Component {
         };
     }
 
-    errorNotification = (description) => (
+    errorNotification = () => (
         notification.open({
             message: "Xóa bị lỗi",
             description: "Xóa bị lỗi"
@@ -29,6 +29,13 @@ class Delete extends Component {
 
     removeHandler = () => {
         this.props.remove();
+
+        if (this.props.error) {
+            this.errorNotification();
+        } else {
+            this.successNotification();
+        }
+
         this.setState({modalVisible: false});
     };
 

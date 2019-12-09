@@ -9,13 +9,14 @@ const withDataDeleting = (api, title) => {
             super(props);
 
             this.state = {
-                isLoading = false,
                 error = null
             }
         }
 
         deleteHandler = () => {
             axios.delete(`${api}/${this.props.id}`)
+            .then(response => console.log(response))
+            .catch(error => this.setState({error}));
         }
 
         render () {
