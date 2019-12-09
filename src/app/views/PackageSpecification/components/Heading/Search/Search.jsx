@@ -1,11 +1,22 @@
+import React from "react";
 import { connect } from "react-redux";
+import Search from "../../../../../components/Search";
+import {search as seachAction} from "../../../../../../store/packageSpecification/actions";
 
-import { search as seachAction } from "../../Action/actions";
+const {Component} = React;
 
-import Search from "./SearchItem";
+class SearchContainer extends Component {
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return <Search onSearch={this.props.search} />
+    }
+}
 
 const mapStateToProps = ( state, ownProps ) => ({
-    data: state.package_specification.data,
+    data: state.packageSpecification.data,
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
@@ -27,4 +38,4 @@ const mergeProps = (stateProps, dispatchProps) => ({
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(SearchContainer);

@@ -83,6 +83,13 @@ export default class MenuComponent extends React.Component {
                         </span>
                     </Menu.Item>
 
+                    <Menu.Item key="package-specification-2">
+                        <Icon component={PackageSpecificationSvg} />
+                        <span>
+                            <Link to="/package-specification-2">Quy cách 2</Link>
+                        </span>
+                    </Menu.Item>
+
                     <Menu.Item key="address">
                         <Icon component={AddressSvg} />
                         <span>{lang.ADDRESS_MENU}</span>

@@ -12,7 +12,7 @@ const header = () => (
             <NewItem />
         </div>
         <div className="header-two">
-            <Search />
+            <Search/>
         </div>
     </div>
 );
