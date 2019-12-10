@@ -1,1 +1,1 @@
-export { default as ModalWithForm } from "./ModalWithForm";
+export { default } from "./Modal";

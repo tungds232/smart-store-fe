@@ -7,8 +7,8 @@ import List from "./components/List";
 import axios from "../../../services/axios"
 import * as api from "../../../services/api";
 
-import {fetchData as packSpecFetchData} from "../../../store/packageSpecification/actions";
-
+import {fetchData} from "../../../store/packageSpecification/actions";
+import {getList} from "../../common/dispatchFunction";
 const {Component, Fragment} = React;
 
 class PackageSpecification extends Component {
@@ -36,20 +36,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    list: () => {
-        axios.get(`${api.PACKAGE_SPEFICATION}`,
-        {
-            params: {
-                page: 0,
-                size: 100,
-            }
-        })
-        .then(res => res.data)
-        .then(response => {
-            dispatch(packSpecFetchData(response.data.data));
-        })
-        .catch(error => console.log(error));
-    }
+    list: () => getList(dispatch, fetchData, api.PACKAGE_SPEFICATION)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PackageSpecification);

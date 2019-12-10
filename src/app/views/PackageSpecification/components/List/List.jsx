@@ -2,6 +2,8 @@ import React from "react";
 
 import { Table, Tag, Button, Row } from 'antd';
 import List from "../../../../components/List";
+import DeleteItem from "./DeleteItem";
+import ActiveItem from "./ActiveItem";
 
 const list = (props) => {
     const columns = [
@@ -50,6 +52,29 @@ const list = (props) => {
                 );
             }
         },
+        {
+            title: "Thao tác",
+            key: "action",
+            render: (text , record) => {
+                // let remove =  <DeleteButton disabled={false} id={record.id} />;
+                // if (record.isUsed) {
+                //     remove =<DeleteButton disabled={true} />;
+                // };
+
+                let active = <ActiveItem customClass="active" title="Kích hoạt" id={record.id} />;
+                if(record.isActive){
+                    active = <ActiveItem customClass="inactivate" title="Vô hiệu" id={record.id} />;
+                }
+
+                return (
+                    <div className="group-button">
+                        <DeleteItem id={record.id}/>
+                        {active}
+                        {/* <DetailButton id={record.id}/> */}
+                    </div>
+                );
+            }
+        }
     ];
 
     return <List columns={columns} data={props.data} />;

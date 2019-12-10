@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 
 import {ButtonCreate} from "../../../../../components/Button";
-import {ModalWithForm} from "../../../../../components/Modal";
+import Modal from "../../../../../components/Modal";
 
 class CreateItem extends Component {
     constructor(props){
@@ -33,14 +33,16 @@ class CreateItem extends Component {
     closeModalHandler = () => this.setState({visible: false});
 
     render(){
+        const content = (<h1>Hello</h1>);
         return (
             <Fragment>
                 <ButtonCreate onClick={this.showModalHandler} title="Thêm Quy Cách" />
-                <ModalWithForm 
+                <Modal 
                     title="Thêm Quy Cách" 
                     visible={this.state.visible}
                     onOk={this.addItemHandler}
                     onCancel={this.closeModalHandler}
+                    content={content}
                 />
             </Fragment>
         );
