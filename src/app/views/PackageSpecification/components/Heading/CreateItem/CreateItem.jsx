@@ -1,7 +1,16 @@
 import React, {Component, Fragment} from 'react';
+import { connect } from 'react-redux';
 
 import {ButtonCreate} from "../../../../../components/Button";
 import Modal from "../../../../../components/Modal";
+import CustomForm from "../../../../../components/Form";
+
+import {Input, InputNumber} from "antd";
+
+import * as api from "../../../../../../services/api";
+import {create} from "../../../../../common/dispatchFunction";
+import { fetchData } from '../../../../../../store/packageSpecification/actions';
+
 
 class CreateItem extends Component {
     constructor(props){
@@ -19,6 +28,9 @@ class CreateItem extends Component {
     }
 
     addItemHandler = () => {
+        const formProps = this.form.props.form;
+
+        var data = formProps.getFieldsValue();
         // const data = {
         //     name: this.state.name,
         //     quantity: this.state.selectedChildId === NOCHILD_ID ? 0 : this.state.quantity,
@@ -26,14 +38,28 @@ class CreateItem extends Component {
         // };
 
         // this.props.submit(data);
-
+        this.props.submit(data);
         this.setState({visible: false});
+        this.form.props.form.resetFields();
     };
 
     closeModalHandler = () => this.setState({visible: false});
 
     render(){
-        const content = (<h1>Hello</h1>);
+        const formCreateItems = [
+            {
+                label: "Quy cách",
+                id: "name",
+                field:  (<Input placeholder="Tên quy cách" />)
+            },
+            {
+                label: "Số lượng",
+                id: "quantity",
+                field:  (<InputNumber min={1} defaultvalue={1} />)
+            }
+        ];
+
+        const formContent = <CustomForm items={formCreateItems} wrappedComponentRef={form => this.form = form}/>
         return (
             <Fragment>
                 <ButtonCreate onClick={this.showModalHandler} title="Thêm Quy Cách" />
@@ -42,7 +68,7 @@ class CreateItem extends Component {
                     visible={this.state.visible}
                     onOk={this.addItemHandler}
                     onCancel={this.closeModalHandler}
-                    content={content}
+                    content={formContent}
                 />
             </Fragment>
         );
@@ -50,4 +76,8 @@ class CreateItem extends Component {
 
 }
 
-export default CreateItem;
+const mapDispatchToProps = (dispatch) => ({
+    submit: (data) => create(dispatch, api.PACKAGE_SPEFICATION, data, fetchData)
+});
+
+export default connect(null, mapDispatchToProps)(CreateItem);

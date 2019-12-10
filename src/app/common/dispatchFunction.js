@@ -32,6 +32,15 @@ export const getList = (dispatch, dispatchFunction, url, params = null) => {
         .catch(error => console.log(error));
 }
 
+export const create = (dispatch, url, formData, dispatchListFunction) => {
+    axios.post(url, formData)
+        .then(res => res.data)
+        .then(response => {
+            getList(dispatch, dispatchListFunction, url);
+        })
+        .catch(error => console.error(error));
+}
+
 export const remove = (dispatch, url, id, dispatchListFunction) => {
     axios.delete(`${url}/${id}`)
         .then(response => {
