@@ -3,7 +3,7 @@ import React from "react";
 import { PageHeader } from 'antd';
 
 import NewItem from "./NewItem/NewItemContainer";
-import Search from "./SearchItem/SearchItemContainer"
+import Search from "./SearchItem/Search"
 
 const header = () => (
     <div>
