@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {ButtonCreate} from "../../../../../components/Button";
 import Modal from "../../../../../components/Modal";
 import CustomForm from "../../../../../components/Form";
+import Select from "../../../../../components/Select";
 
 import {Input, InputNumber} from "antd";
 
@@ -45,7 +46,14 @@ class CreateItem extends Component {
 
     closeModalHandler = () => this.setState({visible: false});
 
+    selectChildHanlder = () => console.log(1234);
+
     render(){
+        let {items} = this.props;
+        items.unshift({
+            name: "Không có quy cách con"
+        });
+
         const formCreateItems = [
             {
                 label: "Quy cách",
@@ -56,6 +64,11 @@ class CreateItem extends Component {
                 label: "Số lượng",
                 id: "quantity",
                 field:  (<InputNumber min={1} defaultvalue={1} />)
+            },
+            {
+                label: "Quy cách con",
+                id: "childId",
+                field: (<Select items={items} onChange={this.selectChildHanlder}/>)
             }
         ];
 
@@ -76,8 +89,12 @@ class CreateItem extends Component {
 
 }
 
+const mapStateToProps = (state) => ({
+    items: state.packageSpecification.shownData
+});
+
 const mapDispatchToProps = (dispatch) => ({
     submit: (data) => create(dispatch, api.PACKAGE_SPEFICATION, data, fetchData)
 });
 
-export default connect(null, mapDispatchToProps)(CreateItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateItem);
