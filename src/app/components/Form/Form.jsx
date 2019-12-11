@@ -10,12 +10,15 @@ class CustomForm extends Component {
 
 
     render(){
+        console.log(this.props)
         const {getFieldDecorator} = this.props.form;
         return (
             <Form>
                 {this.props.items.map((item, key) => (
                     <Form.Item label={item.label} key={key}>
-                        {getFieldDecorator(item.id)(item.field)}
+                        {getFieldDecorator(item.id, {
+                            initialValue: ( item.initialValue !== undefined || item.initialValue !== null) ? item.initialValue : "",
+                        })(item.field)}
                     </Form.Item>
                 ))}
             </Form>

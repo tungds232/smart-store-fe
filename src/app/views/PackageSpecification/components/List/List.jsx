@@ -4,6 +4,7 @@ import { Table, Tag, Button, Row } from 'antd';
 import List from "../../../../components/List";
 import DeleteItem from "./DeleteItem";
 import ActiveItem from "./ActiveItem";
+import UpdateItem from "./UpdateItem";
 
 const list = (props) => {
     const columns = [
@@ -70,7 +71,7 @@ const list = (props) => {
                     <div className="group-button">
                         <DeleteItem id={record.id}/>
                         {active}
-                        {/* <DetailButton id={record.id}/> */}
+                        {/* <UpdateItem id={record.id}/> */}
                     </div>
                 );
             }
