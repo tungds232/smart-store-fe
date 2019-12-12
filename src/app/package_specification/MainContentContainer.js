@@ -1,19 +1,18 @@
 import { connect } from "react-redux";
 
-import { fetchData as fetchDataAction } from "./Action/actions";
+import MainContent from "./MainContent";
 
 import axios from "../../services/axios"
 import * as api from "../../services/api";
 
-import MainContent from "./MainContent";
-
+import {fetchData as packSpecFetchData} from "../../store/packageSpecification/actions";
 
 const mapStateToProps = state => ({
     isLoading: state.package_specification.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchData: () => {
+    fetchPackSpecData: () => {
         axios.get(`${api.PACKAGE_SPEFICATION}`,
         {
             params: {
@@ -23,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
         })
         .then(res => res.data)
         .then(response => {
-            dispatch(fetchDataAction(response.data.data));
+            dispatch(packSpecFetchData(response.data.data));
         })
         .catch(error => console.log(error));
     }

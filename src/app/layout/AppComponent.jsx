@@ -19,7 +19,7 @@ class AppComponent extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchPackSpecData();
+        // this.props.fetchPackSpecData();
     }
 
     render () {

@@ -13,6 +13,10 @@ class MainContent extends Component {
         this.state = {}
     }
 
+    componentDidMount(){
+        this.props.fetchPackSpecData();
+    }
+
     render() {
         // const loading =  <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} spin />} />;
         // if (this.props.isLoading) {
