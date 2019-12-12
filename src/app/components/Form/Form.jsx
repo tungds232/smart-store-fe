@@ -10,7 +10,6 @@ class CustomForm extends Component {
 
 
     render(){
-        console.log(this.props)
         const {getFieldDecorator} = this.props.form;
         return (
             <Form>

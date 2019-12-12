@@ -12,6 +12,7 @@ import * as api from "../../../../../../services/api";
 import { create } from "../../../../../common/dispatchFunction";
 import { fetchData } from '../../../../../../store/packageSpecification/actions';
 
+import withCreate from "../../../../../hoc/Create/withCreate";
 
 class CreateItem extends Component {
     constructor(props) {
@@ -29,16 +30,24 @@ class CreateItem extends Component {
         });
     }
 
-    addItemHandler = () => {
+    addItemHandler = async () => {
         const formProps = this.form.props.form;
 
         var data = formProps.getFieldsValue();
+        
+        // this.props.submit(data);
+        await this.props.submitHandler(data);
+        console.log("Liem 1");
 
-        this.props.submit(data);
+        console.log(this.props.items);
+        
         this.setState({ visible: false });
         this.form.props.form.resetFields();
     };
 
+    componentWillUpdate () {
+        console.log("Liem 2");
+    }
     closeModalHandler = () => {
         this.form.props.form.resetFields();
         this.setState({ visible: false })
@@ -57,8 +66,8 @@ class CreateItem extends Component {
     }
 
     render() {
-        console.log(this.state.disableQuantity)
         let { items } = this.props;
+        console.log(this.props)
 
         const formCreateItems = [
             {
@@ -92,15 +101,16 @@ class CreateItem extends Component {
             </Fragment>
         );
     }
-
 }
 
 const mapStateToProps = (state) => ({
     items: state.packageSpecification.shownData
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    submit: (data) => create(dispatch, api.PACKAGE_SPEFICATION, data, fetchData)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    submit: (items) => dispatch(fetchData(items))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateItem);
+//export default withCreate(api.PACKAGE_SPEFICATION)(connect(mapStateToProps, mapDispatchToProps)(CreateItem));
+
+export default connect(mapStateToProps, mapDispatchToProps)(withCreate(api.PACKAGE_SPEFICATION)(CreateItem));

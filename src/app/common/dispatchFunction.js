@@ -36,7 +36,7 @@ export const create = (dispatch, url, formData, dispatchListFunction) => {
     axios.post(url, formData)
         .then(res => res.data)
         .then(response => {
-            getList(dispatch, dispatchListFunction, url);
+            // getList(dispatch, dispatchListFunction, url);
         })
         .catch(error => console.error(error));
 }
