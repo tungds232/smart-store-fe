@@ -14,7 +14,7 @@ const reducer = ( state = initState, action ) => {
             return {...state, 
                 data: action.payload.data, 
                 shownData: action.payload.data.map((item, index) => ({...item, order_number: index + 1,
-                    child: item.child ? item.child.name : null})), 
+                    child: item.child ? item.child.name : null, childId: item.child ? item.child.id : null})), 
                 fetchError: action.payload.error,
                 isLoading: false};
 

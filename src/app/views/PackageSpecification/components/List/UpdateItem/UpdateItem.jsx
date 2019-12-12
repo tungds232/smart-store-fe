@@ -1,20 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import { connect } from 'react-redux';
 
-import { ButtonCreate } from "../../../../../components/Button";
+import {ButtonUpdate} from "../../../../../components/Button";
 import Modal from "../../../../../components/Modal";
 import CustomForm from "../../../../../components/Form";
 import Select from "../../../../../components/Select";
 
-import { Input, InputNumber } from "antd";
+import {Input, InputNumber} from "antd";
 
 import * as api from "../../../../../../services/api";
-import { create } from "../../../../../common/dispatchFunction";
+import {create} from "../../../../../common/dispatchFunction";
 import { fetchData } from '../../../../../../store/packageSpecification/actions';
 
 
-class CreateItem extends Component {
-    constructor(props) {
+class UpdateItem extends Component {
+    constructor(props){
         super(props);
 
         this.state = {
@@ -29,24 +29,22 @@ class CreateItem extends Component {
         });
     }
 
-    addItemHandler = () => {
+    updateItemHandler = () => {
         const formProps = this.form.props.form;
 
         var data = formProps.getFieldsValue();
 
         this.props.submit(data);
-        this.setState({ visible: false });
+        this.setState({visible: false});
         this.form.props.form.resetFields();
     };
 
-    closeModalHandler = () => {
-        this.form.props.form.resetFields();
-        this.setState({ visible: false })
-    };
+    closeModalHandler = () => this.setState({visible: false});
 
     selectChildHanlder = (selected) => {
+        console.log(selected);
         let disableQuantity = false;
-        if (!selected) {
+        if(!selected){
             disableQuantity = true;
         }
 
@@ -56,36 +54,49 @@ class CreateItem extends Component {
         });
     }
 
-    render() {
-        console.log(this.state.disableQuantity)
-        let { items } = this.props;
+    render(){
+        let {id, items} = this.props;
+
+        let currentItem = null;
+        let filterItems = [];
+        items.forEach((item, index) => {
+            if(item.id === id){
+                currentItem = item;
+            }
+            else {
+                filterItems.push(item);
+            }
+        });
 
         const formCreateItems = [
             {
                 label: "Quy cách",
                 id: "name",
-                field: (<Input placeholder="Tên quy cách" />)
+                field:  (<Input placeholder="Tên quy cách" />),
+                initialValue: currentItem.name,
             },
             {
                 label: "Số lượng",
                 id: "quantity",
-                field: (<InputNumber disabled={this.state.disableQuantity} min={1} defaultvalue={1} />)
+                field:  (<InputNumber disabled={this.state.disableQuantity} min={0} />),
+                initialValue: currentItem.quantity,
             },
             {
                 label: "Quy cách con",
                 id: "childId",
-                field: (<Select defaultText="Không có quy cách con" items={items} onChange={this.selectChildHanlder} />)
+                field: (<Select defaultText="Không có quy cách con" items={filterItems} onChange={this.selectChildHanlder}/>),
+                initialValue: currentItem.childId,
             }
         ];
 
-        const formContent = <CustomForm items={formCreateItems} wrappedComponentRef={form => this.form = form} />
+        const formContent = <CustomForm items={formCreateItems} wrappedComponentRef={form => this.form = form}/>
         return (
             <Fragment>
-                <ButtonCreate onClick={this.showModalHandler} title="Thêm Quy Cách" />
-                <Modal
-                    title="Thêm Quy Cách"
+                <ButtonUpdate onClick={this.showModalHandler} title="Cập nhật" />
+                <Modal 
+                    title="Cập Nhật Quy Cách" 
                     visible={this.state.visible}
-                    onOk={this.addItemHandler}
+                    onOk={this.updateItemHandler}
                     onCancel={this.closeModalHandler}
                     content={formContent}
                 />
@@ -103,4 +114,4 @@ const mapDispatchToProps = (dispatch) => ({
     submit: (data) => create(dispatch, api.PACKAGE_SPEFICATION, data, fetchData)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateItem);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateItem);
