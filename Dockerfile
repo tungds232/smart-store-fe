@@ -5,15 +5,11 @@ RUN mkdir -p /usr/src/app_fe
 WORKDIR /usr/src/app_fe/
 
 #Copy all source into image
-ARG BRANCH
-ARG TOKEN_GIT
 
-RUN apk add --no-cache git
-ADD https://${TOKEN_GIT}:x-oauth-basic@api.github.com/repos/longnguyencse/smart-store-fe/git/refs/heads/${BRANCH} version.json
-RUN git clone https://${TOKEN_GIT}@github.com/longnguyencse/smart-store-fe.git
+RUN git clone https://github.com/tungds232/smart-store-fe.git
 WORKDIR /usr/src/app_fe/smart-store-fe
 
-RUN git checkout ${BRANCH}
+RUN git checkout master
 RUN git branch
 #Copy environment to replace available one
 #RUN rm .env.development
