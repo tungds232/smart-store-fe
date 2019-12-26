@@ -6,6 +6,8 @@ WORKDIR /usr/src/app_fe/
 
 #Copy all source into image
 
+RUN apk add --no-cache git
+
 RUN git clone https://github.com/tungds232/smart-store-fe.git
 WORKDIR /usr/src/app_fe/smart-store-fe
 
